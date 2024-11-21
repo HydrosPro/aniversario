@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1eb; /* Marfil suave */
+            color: #4a4a4a; /* Gris oscuro para los textos */
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        header {
+            background-color: #b88a4d; /* Dorado cálido */
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 60% 60%;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: #b88a4d;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+        }
+
+        header p {
+            font-size: 1.6em;
+            font-weight: 300;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+        /* Sección */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            background-color: #fff;
+            margin-top: 40px;
+            transition: transform 0.5s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px); /* Animación sutil de hover */
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #6a4e71; /* Gris lavanda suave */
+        }
+
+        .section p {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #6a4e71; /* Gris lavanda suave */
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        /* Carrusel */
+        .carousel {
+            position: relative;
+            width: 90%;
+            max-width: 1600px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 600px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            padding: 15px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel img {
+            width: 33.33%; /* Mostrar 3 imágenes a la vez */
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #b88a4d; /* Dorado cálido */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Feliz Aniversario</h1>
+        <p>Un viaje juntos lleno de momentos inolvidables</p>
+    </header>
+
+    <!-- Un día especial -->
+    <section class="section">
+        <h2>Un Día Especial</h2>
+        <p>
+            Hoy celebramos no solo el paso del tiempo, sino la magia de compartirlo contigo.  
+            Cada instante a tu lado transforma lo cotidiano en algo extraordinario, y cada sonrisa tuya ilumina mi mundo como el sol en un día despejado.  
+            Gracias por ser mi refugio, mi alegría y mi todo. ❤️
+        </p>
+    </section>
+
+    <!-- Carrusel -->
+    <section class="section">
+        <h2>Recuerdos Especiales</h2>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="https://wallpapers.com/images/high/romantic-couple-holding-hands-on-the-ground-b3spol3zpif72y83.webp" alt="Foto 1">
+                <img src="https://wallpapers.com/images/high/romantic-couple-lift-and-kiss-silhouette-gfanf4vfvog05p2t.webp" alt="Foto 2">
+                <img src="https://wallpapers.com/images/high/romantic-couple-and-full-moon-rw66y7fyssazov3c.webp" alt="Foto 3">
+                <img src="https://wallpapers.com/images/high/romantic-love-in-a-port-b5qoaeh2g8dr80ys.webp" alt="Foto 4">
+                <img src="https://wallpapers.com/images/high/romantic-couple-pictures-uxjjhbns7h4qunlr.webp" alt="Foto 5">
+                <img src="https://wallpapers.com/images/high/romantic-couple-pictures-dxybkqkqgt13eihe.webp" alt="Foto 6">
+                <img src="https://via.placeholder.com/1600x800?text=Foto+7" alt="Foto 7">
+                <img src="https://via.placeholder.com/1600x800?text=Foto+8" alt="Foto 8">
+                <img src="https://via.placeholder.com/1600x800?text=Foto+9" alt="Foto 9">
+                <img src="https://via.placeholder.com/1600x800?text=Foto+10" alt="Foto 10">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nuestro aniversario. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0; // Índice actual de la imagen
+        const totalImages = 10; // Total de imágenes
+        const visibleImages = 3; // Imágenes visibles al mismo tiempo
+
+        function moveCarousel() {
+            currentIndex++; // Avanzar al siguiente índice
+
+            // Si el índice supera el rango máximo, regresar al inicio
+            if (currentIndex > totalImages - visibleImages) {
+                currentIndex = 0;
+            }
+
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            // Desplazar el contenedor según el índice actual
+            const offset = -currentIndex * 33.33; // Cada imagen ocupa el 33.33% del ancho
+            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }
+
+        // Configurar el desplazamiento automático cada 3 segundos
+        setInterval(moveCarousel, 3000);
+    </script>
+</body>
+</html>
