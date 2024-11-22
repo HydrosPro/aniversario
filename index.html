@@ -22,15 +22,14 @@
             background-color: #b88a4d;
             color: #fff;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             position: relative;
-            overflow: hidden;
         }
 
         header::before {
             content: '';
             position: absolute;
-            top: -50px;
+            top: -80px;
             left: 50%;
             transform: translateX(-50%);
             width: 200px;
@@ -45,14 +44,13 @@
             font-size: 2.5em;
             margin-bottom: 15px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         header p {
             font-size: 1.2em;
             font-weight: 300;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Sección */
@@ -61,9 +59,9 @@
             text-align: center;
             max-width: 1000px;
             margin: 20px auto;
+            background-color: #fff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            background-color: #fff;
         }
 
         .section h2 {
@@ -91,7 +89,7 @@
             margin: 20px auto;
             overflow: hidden;
             border-radius: 10px;
-            height: 250px;
+            height: 200px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background-color: #fff;
         }
@@ -103,17 +101,10 @@
         }
 
         .carousel img {
-            width: 100%;
+            width: 100%; /* Mostrar solo una imagen en móviles */
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .carousel img:hover {
-            transform: scale(1.05) rotateY(5deg);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
@@ -123,7 +114,6 @@
             text-align: center;
             padding: 15px 0;
             margin-top: 30px;
-            border-radius: 15px 15px 0 0;
         }
 
         footer p {
@@ -132,35 +122,31 @@
         }
 
         /* Responsivo */
-        @media (min-width: 1290px) {
+        @media (min-width: 768px) {
             header h1 {
-                font-size: 3.5em;
+                font-size: 3em;
             }
 
             header p {
                 font-size: 1.5em;
             }
 
-            .section {
-                padding: 60px 20px;
+            .carousel img {
+                width: 33.33%; /* Mostrar 3 imágenes en pantallas grandes */
             }
 
             .carousel {
                 height: 400px;
             }
-
-            .carousel img {
-                width: 33.33%;
-            }
         }
 
-        @media (min-width: 2796px) {
+        @media (min-width: 1024px) {
             header h1 {
                 font-size: 4em;
             }
 
             .section h2 {
-                font-size: 2.8em;
+                font-size: 2.5em;
             }
 
             .carousel {
@@ -214,36 +200,20 @@
         let currentIndex = 0;
         const carouselImages = document.querySelector('.carousel-images');
         const totalImages = document.querySelectorAll('.carousel img').length;
-        const visibleImages = window.innerWidth >= 1290 ? 3 : 1;
 
         function moveCarousel() {
             currentIndex++;
-
-            // Si llegamos al final, reiniciar el carrusel
             if (currentIndex >= totalImages) {
                 currentIndex = 0;
-                // Reseteo instantáneo para evitar el espacio en blanco
-                carouselImages.style.transition = 'none';
-                const offset = 0;
-                carouselImages.style.transform = `translateX(${offset}%)`;
-
-                // Esperar un fotograma antes de continuar con la transición suave
-                setTimeout(() => {
-                    carouselImages.style.transition = 'transform 1s ease-in-out';
-                }, 50);
-
-                return;
             }
-
             updateCarousel();
         }
 
         function updateCarousel() {
-            const offset = -currentIndex * (100 / visibleImages);
+            const offset = -currentIndex * 100; // En móviles, desplazamos 100% por imagen
             carouselImages.style.transform = `translateX(${offset}%)`;
         }
 
-        // Configurar el desplazamiento automático cada 3 segundos
         setInterval(moveCarousel, 3000);
     </script>
 </body>
