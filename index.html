@@ -11,15 +11,15 @@
             font-family: 'Raleway', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f1eb; /* Marfil suave */
-            color: #4a4a4a; /* Gris oscuro para los textos */
+            background-color: #f4f1eb;
+            color: #4a4a4a;
             overflow-x: hidden;
             box-sizing: border-box;
         }
 
         /* Header */
         header {
-            background-color: #b88a4d; /* Dorado cálido */
+            background-color: #b88a4d;
             color: #fff;
             text-align: center;
             padding: 60px 20px;
@@ -42,17 +42,17 @@
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5em; /* Tamaño reducido para móviles */
+            font-size: 2.5em;
             margin-bottom: 15px;
             font-weight: 700;
             letter-spacing: 1px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         header p {
             font-size: 1.2em;
             font-weight: 300;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Sección */
@@ -71,13 +71,13 @@
             font-size: 2em;
             margin-bottom: 15px;
             font-weight: 700;
-            color: #6a4e71; /* Gris lavanda suave */
+            color: #6a4e71;
         }
 
         .section p {
             font-size: 1em;
             font-weight: 300;
-            color: #6a4e71; /* Gris lavanda suave */
+            color: #6a4e71;
             line-height: 1.5;
             margin: 0 auto;
             max-width: 700px;
@@ -91,7 +91,7 @@
             margin: 20px auto;
             overflow: hidden;
             border-radius: 10px;
-            height: 250px; /* Altura ajustada para móviles */
+            height: 250px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background-color: #fff;
         }
@@ -103,7 +103,7 @@
         }
 
         .carousel img {
-            width: 100%; /* Mostrar 1 imagen a la vez en móviles */
+            width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
@@ -118,7 +118,7 @@
 
         /* Footer */
         footer {
-            background-color: #b88a4d; /* Dorado cálido */
+            background-color: #b88a4d;
             color: #fff;
             text-align: center;
             padding: 15px 0;
@@ -146,11 +146,11 @@
             }
 
             .carousel {
-                height: 400px; /* Aumentar altura en pantallas medianas */
+                height: 400px;
             }
 
             .carousel img {
-                width: 33.33%; /* Mostrar 3 imágenes a la vez */
+                width: 33.33%;
             }
         }
 
@@ -164,7 +164,7 @@
             }
 
             .carousel {
-                height: 500px; /* Mayor altura en pantallas grandes */
+                height: 500px;
             }
         }
     </style>
@@ -212,22 +212,38 @@
 
     <script>
         let currentIndex = 0;
+        const carouselImages = document.querySelector('.carousel-images');
         const totalImages = document.querySelectorAll('.carousel img').length;
         const visibleImages = window.innerWidth >= 768 ? 3 : 1;
 
         function moveCarousel() {
             currentIndex++;
-            if (currentIndex > totalImages - visibleImages) {
+
+            // Si llegamos al final, reiniciar el carrusel
+            if (currentIndex >= totalImages) {
                 currentIndex = 0;
+                // Reseteo instantáneo para evitar el espacio en blanco
+                carouselImages.style.transition = 'none';
+                const offset = 0;
+                carouselImages.style.transform = `translateX(${offset}%)`;
+
+                // Esperar un fotograma antes de continuar con la transición suave
+                setTimeout(() => {
+                    carouselImages.style.transition = 'transform 1s ease-in-out';
+                }, 50);
+
+                return;
             }
+
             updateCarousel();
         }
 
         function updateCarousel() {
             const offset = -currentIndex * (100 / visibleImages);
-            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+            carouselImages.style.transform = `translateX(${offset}%)`;
         }
 
+        // Configurar el desplazamiento automático cada 3 segundos
         setInterval(moveCarousel, 3000);
     </script>
 </body>
