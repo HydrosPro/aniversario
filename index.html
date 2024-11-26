@@ -224,35 +224,12 @@
     </audio>
 
     <script>
-        // Reproducir el audio automáticamente al cargar la página
-        window.onload = function() {
+        // Reproducir el audio cuando el usuario haga clic en el botón flotante
+        document.getElementById('musicBtn').addEventListener('click', function() {
             var audio = document.getElementById('backgroundAudio');
             audio.play();
-        };
-
-        // Funcionalidad para ocultar el botón al hacer clic
-        document.getElementById('musicBtn').addEventListener('click', function() {
-            this.classList.add('hidden');
+            this.classList.add('hidden'); // Ocultar el botón después de hacer clic
         });
-
-        let currentIndex = 0; // Índice actual de la imagen
-        const totalImages = 12; // Total de imágenes, incluyendo duplicadas
-        const visibleImages = 3; // Imágenes visibles al mismo tiempo
-
-        function moveCarousel() {
-            currentIndex++;
-            if (currentIndex > totalImages - visibleImages) {
-                currentIndex = 0;
-            }
-            updateCarousel();
-        }
-
-        function updateCarousel() {
-            const offset = -currentIndex * (100 / visibleImages);
-            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
-        }
-
-        setInterval(moveCarousel, 3000);
     </script>
 </body>
 </html>
