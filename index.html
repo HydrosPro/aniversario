@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Aniversario</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos generales del cuerpo */
         body {
@@ -139,12 +140,45 @@
             font-size: 1.2em;
             margin: 0;
         }
+
+        /* Botón flotante */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b88a4d; /* Color dorado */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .floating-button.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .floating-button:hover {
+            background-color: #a17945; /* Dorado más oscuro al pasar el mouse */
+        }
+
+        .floating-button i {
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
     <!-- Audio para reproducir la canción -->
     <audio id="miAudio" autoplay loop>
-        <source src="El_amor_mas_grande.mp3"audio/mpeg">
+        <source src="El_amor_mas_grande.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
@@ -181,6 +215,11 @@
         <p>&copy; 2024 Nuestro aniversario. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Botón flotante -->
+    <button class="floating-button" id="musicButton">
+        <i class="fas fa-music"></i>
+    </button>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('miAudio');
@@ -195,6 +234,14 @@
             if (audio.paused) {
                 audio.play();
             }
+        });
+
+        // Selecciona el botón flotante
+        const button = document.getElementById('musicButton');
+
+        // Agrega el evento para que desaparezca al hacer clic
+        button.addEventListener('click', () => {
+            button.classList.add('hidden');
         });
     </script>
 </body>
