@@ -217,7 +217,19 @@
         &#9835; <!-- Símbolo de la nota musical -->
     </div>
 
+    <!-- Audio -->
+    <audio id="backgroundAudio" loop>
+        <source src="El_amor_mas_grande.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio HTML5.
+    </audio>
+
     <script>
+        // Reproducir el audio automáticamente al cargar la página
+        window.onload = function() {
+            var audio = document.getElementById('backgroundAudio');
+            audio.play();
+        };
+
         // Funcionalidad para ocultar el botón al hacer clic
         document.getElementById('musicBtn').addEventListener('click', function() {
             this.classList.add('hidden');
