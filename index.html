@@ -111,7 +111,7 @@
         }
 
         .carousel img {
-            width: 100%; /* Cada imagen ocupa el 100% del carrusel */
+            width: 33.33%; /* Mostrar 3 imágenes a la vez */
             height: auto;
             aspect-ratio: 3 / 2; /* Mantener la proporción 3:2 */
             object-fit: cover; /* Ajustar la imagen sin distorsión */
@@ -206,7 +206,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Nuestro aniversario. Todos los derechos reservados.</p>
     </footer>
@@ -237,13 +236,13 @@
         const totalImages = images.length;
 
         function moveCarousel() {
-            if (currentIndex === totalImages - 1) {
+            if (currentIndex === totalImages - 3) { // Cuando llegue al final de las 3 imágenes
                 currentIndex = 0; // Volver a la primera imagen
             } else {
                 currentIndex++;
             }
 
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`; // Mover al siguiente slide
+            carousel.style.transform = `translateX(-${currentIndex * 33.33}%)`; // Mover 1 imagen
         }
 
         setInterval(moveCarousel, 3000); // Mover cada 3 segundos
