@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer Capítulo</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Estilos generales del cuerpo */
         body {
@@ -18,42 +17,138 @@
             box-sizing: border-box;
         }
 
-        /* Botón flotante */
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
+        /* Header */
+        header {
             background-color: #b88a4d; /* Dorado cálido */
-            border: none;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: #f4f1eb;
             border-radius: 50%;
+            z-index: -1;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.6em;
+            font-weight: 300;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sección */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            background-color: #fff;
+            margin-top: 40px;
+            transition: transform 0.5s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #6a4e71;
+        }
+
+        .section p {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #6a4e71;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        /* Carrusel */
+        .carousel {
+            position: relative;
+            width: 90%;
+            max-width: 1600px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            height: auto;
+            aspect-ratio: 3 / 2; /* Mantener proporción de 3:2 */
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            padding: 15px;
+        }
+
+        .carousel-images {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 1000;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 1s ease-in-out;
+            height: 100%;
         }
 
-        .floating-button i {
-            font-size: 24px;
-            color: white;
+        .carousel img {
+            width: calc(100% / 3); /* Cada imagen ocupa un tercio del carrusel */
+            height: auto;
+            aspect-ratio: 3 / 2; /* Mantener la proporción 3:2 */
+            object-fit: cover; /* Ajustar la imagen sin distorsión */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
-        .floating-button:active {
-            transform: scale(0.9);
+        .carousel img:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #b88a4d;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <!-- Contenido del sitio -->
+    <!-- Header -->
     <header>
         <h1>Primer Capítulo</h1>
         <p>Un viaje juntos lleno de momentos inolvidables</p>
     </header>
 
+    <!-- Un día especial -->
     <section class="section">
         <h2>Un Día Especial</h2>
         <p>
@@ -68,19 +163,51 @@
         </p>
     </section>
 
-    <!-- Botón flotante -->
-    <button class="floating-button" onclick="hideButton()">
-        <i class="fas fa-music"></i>
-    </button>
+    <!-- Carrusel -->
+    <section class="section">
+        <h2>Recuerdos Especiales</h2>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="3e2b7a85-efcc-4785-8bb1-44e66c9c8d98.JPEG" alt="Foto 1">
+                <img src="458ae6b4-d544-492a-9b08-2d81ffcb3b37.JPEG" alt="Foto 2">
+                <img src="70772451-3583-460e-b282-9cef13795b75.JPEG" alt="Foto 3">
+                <img src="9c770441-cf62-44d9-8e6a-102724673671.JPEG" alt="Foto 4">
+                <img src="IMG_0638.JPEG" alt="Foto 5">
+                <img src="IMG_0639.JPEG" alt="Foto 6">
+                <img src="a0d7262c-c34d-402c-bea4-f8a88b07c079.JPEG" alt="Foto 7">
+                <img src="b04a1170-91d3-44f1-b9b6-0a9f9cc420cf.JPEG" alt="Foto 8">
+                <img src="e1c5e3d0-e612-4618-892d-0756b68ca978.JPEG" alt="Foto 9">
+                <img src="fc120d01-6f7f-4d85-a56f-cb0efb20b29c.JPEG" alt="Foto 10">
+                <img src="3e2b7a85-efcc-4785-8bb1-44e66c9c8d98.JPEG" alt="Foto 1">
+                <img src="458ae6b4-d544-492a-9b08-2d81ffcb3b37.JPEG" alt="Foto 2">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nuestro aniversario. Todos los derechos reservados.</p>
+    </footer>
 
     <script>
-        // Función para ocultar el botón
-        function hideButton() {
-            const button = document.querySelector('.floating-button');
-            button.style.opacity = '0'; // Hacer el botón invisible
-            button.style.transform = 'scale(0)'; // Reducir su tamaño a cero
-            setTimeout(() => button.style.display = 'none', 300); // Eliminarlo después de la animación
+        let currentIndex = 0; // Índice actual de la imagen
+        const totalImages = 12; // Total de imágenes, incluyendo duplicadas
+        const visibleImages = 3; // Imágenes visibles al mismo tiempo
+
+        function moveCarousel() {
+            currentIndex++;
+            if (currentIndex > totalImages - visibleImages) {
+                currentIndex = 0;
+            }
+            updateCarousel();
         }
+
+        function updateCarousel() {
+            const offset = -currentIndex * (100 / visibleImages);
+            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(moveCarousel, 3000);
     </script>
 </body>
 </html>
