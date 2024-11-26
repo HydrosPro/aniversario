@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primer Capítulo</title>
+    <title>Feliz Aniversario</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos generales del cuerpo */
         body {
             font-family: 'Raleway', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f1eb;
-            color: #4a4a4a;
+            background-color: #f4f1eb; /* Marfil suave */
+            color: #4a4a4a; /* Gris oscuro para los textos */
             overflow-x: hidden;
             box-sizing: border-box;
         }
 
         /* Header */
         header {
-            background-color: #b88a4d; 
+            background-color: #b88a4d; /* Dorado cálido */
             color: #fff;
             text-align: center;
             padding: 100px 20px;
@@ -28,73 +27,220 @@
             overflow: hidden;
         }
 
+        header::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: #f4f1eb;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4em;
             margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         header p {
             font-size: 1.6em;
             font-weight: 300;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Botón para activar la música */
-        .music-button {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 20px;
+        /* Sección */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            background-color: #fff;
+            margin-top: 40px;
+            transition: transform 0.5s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #6a4e71;
+        }
+
+        .section p {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #6a4e71;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        /* Carrusel */
+        .carousel {
+            position: relative;
+            width: 90%;
+            max-width: 1600px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            height: auto;
+            aspect-ratio: 3 / 2; /* Mantener proporción de 3:2 */
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            padding: 15px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel img {
+            width: calc(100% / 3); /* Cada imagen ocupa un tercio del carrusel */
+            height: auto;
+            aspect-ratio: 3 / 2; /* Mantener la proporción 3:2 */
+            object-fit: cover; /* Ajustar la imagen sin distorsión */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
             background-color: #b88a4d;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
+        }
+
+        footer p {
             font-size: 1.2em;
+            margin: 0;
+        }
+
+        /* Estilo para el botón flotante */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b88a4d;
+            color: #fff;
+            font-size: 2em;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
         }
 
-        .music-button:hover {
-            transform: scale(1.1);
+        .floating-btn:hover {
+            background-color: #9c7038;
         }
 
-        /* Asegurarse de que el audio no interfiera con el contenido */
-        audio {
-            display: none;
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <h1>Primer Capítulo</h1>
+        <h1>Feliz Aniversario</h1>
         <p>Un viaje juntos lleno de momentos inolvidables</p>
-
-        <!-- Botón para activar música -->
-        <button class="music-button" id="playMusicButton">Reproducir Música</button>
     </header>
 
-    <!-- Reproducción automática de música (pero desactivada inicialmente) -->
-    <audio id="background-music" loop>
-        <!-- Asegúrate de que la ruta sea válida -->
-        <source src="El_amor_mas_grande.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+    <!-- Un día especial -->
+    <section class="section">
+        <h2>Un Día Especial</h2>
+        <p>
+            Hoy celebramos no solo el paso del tiempo, sino la magia de compartirlo contigo.  
+            Cada instante a tu lado transforma lo cotidiano en algo extraordinario, y cada sonrisa tuya ilumina mi mundo como el sol en un día despejado.  
+            Gracias por ser mi refugio, mi alegría y mi todo. ❤️
+        </p>
+    </section>
+
+    <!-- Carrusel -->
+    <section class="section">
+        <h2>Recuerdos Especiales</h2>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="3e2b7a85-efcc-4785-8bb1-44e66c9c8d98.JPEG" alt="Foto 1">
+                <img src="458ae6b4-d544-492a-9b08-2d81ffcb3b37.JPEG" alt="Foto 2">
+                <img src="70772451-3583-460e-b282-9cef13795b75.JPEG" alt="Foto 3">
+                <img src="9c770441-cf62-44d9-8e6a-102724673671.JPEG" alt="Foto 4">
+                <img src="IMG_0638.JPEG" alt="Foto 5">
+                <img src="IMG_0639.JPEG" alt="Foto 6">
+                <img src="a0d7262c-c34d-402c-bea4-f8a88b07c079.JPEG" alt="Foto 7">
+                <img src="b04a1170-91d3-44f1-b9b6-0a9f9cc420cf.JPEG" alt="Foto 8">
+                <img src="e1c5e3d0-e612-4618-892d-0756b68ca978.JPEG" alt="Foto 9">
+                <img src="fc120d01-6f7f-4d85-a56f-cb0efb20b29c.JPEG" alt="Foto 10">
+                <img src="3e2b7a85-efcc-4785-8bb1-44e66c9c8d98.JPEG" alt="Foto 1">
+                <img src="458ae6b4-d544-492a-9b08-2d81ffcb3b37.JPEG" alt="Foto 2">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nuestro aniversario. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Botón flotante -->
+    <div id="musicBtn" class="floating-btn">
+        &#9835; <!-- Símbolo de la nota musical -->
+    </div>
 
     <script>
-        // Función para activar la música
-        document.getElementById('playMusicButton').addEventListener('click', function() {
-            const audio = document.getElementById('background-music');
-            audio.play(); // Reproducir música al hacer clic en el botón
-            this.style.display = 'none'; // Ocultar el botón después de hacer clic
+        // Funcionalidad para ocultar el botón al hacer clic
+        document.getElementById('musicBtn').addEventListener('click', function() {
+            this.classList.add('hidden');
         });
 
-        // Verificación si el audio se puede reproducir correctamente
-        const audio = document.getElementById('background-music');
-        audio.onerror = function() {
-            alert("No se pudo cargar la música. Verifique la ruta del archivo.");
-        };
+        let currentIndex = 0; // Índice actual de la imagen
+        const totalImages = 12; // Total de imágenes, incluyendo duplicadas
+        const visibleImages = 3; // Imágenes visibles al mismo tiempo
+
+        function moveCarousel() {
+            currentIndex++;
+            if (currentIndex > totalImages - visibleImages) {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const offset = -currentIndex * (100 / visibleImages);
+            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(moveCarousel, 3000);
     </script>
 </body>
 </html>
