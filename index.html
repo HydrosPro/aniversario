@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer Capítulo</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos generales del cuerpo */
         body {
@@ -139,6 +140,34 @@
             font-size: 1.2em;
             margin: 0;
         }
+
+        /* Estilo para el botón flotante */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #b88a4d; /* Dorado cálido */
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .floating-button i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .floating-button:active {
+            transform: scale(0.9);
+        }
     </style>
 </head>
 <body>
@@ -189,6 +218,11 @@
         <p>&copy; 2024 Nuestro aniversario. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Botón flotante -->
+    <button class="floating-button" onclick="hideButton()">
+        <i class="fas fa-music"></i>
+    </button>
+
     <script>
         let currentIndex = 0; // Índice actual de la imagen
         const totalImages = 12; // Total de imágenes, incluyendo duplicadas
@@ -208,6 +242,14 @@
         }
 
         setInterval(moveCarousel, 3000);
+
+        // Función para ocultar el botón flotante
+        function hideButton() {
+            const button = document.querySelector('.floating-button');
+            button.style.opacity = '0'; // Hacer el botón invisible
+            button.style.transform = 'scale(0)'; // Reducir su tamaño a cero
+            setTimeout(() => button.style.display = 'none', 300); // Eliminarlo después de la animación
+        }
     </script>
 </body>
 </html>
