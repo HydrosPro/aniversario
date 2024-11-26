@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primer Capítulo</title>
+    <title>Feliz Aniversario</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos generales del cuerpo */
         body {
@@ -140,51 +139,12 @@
             font-size: 1.2em;
             margin: 0;
         }
-
-        /* Botón flotante */
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #b88a4d; /* Color dorado */
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 1000;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .floating-button.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .floating-button:hover {
-            background-color: #a17945; /* Dorado más oscuro al pasar el mouse */
-        }
-
-        .floating-button i {
-            font-size: 24px;
-        }
     </style>
 </head>
 <body>
-    <!-- Audio para reproducir la canción -->
-    <audio id="miAudio" autoplay loop>
-        <source src="El_amor_mas_grande.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-
     <!-- Header -->
     <header>
-        <h1>Primer Capítulo</h1>
+        <h1>Feliz Aniversario</h1>
         <p>Un viaje juntos lleno de momentos inolvidables</p>
     </header>
 
@@ -192,7 +152,9 @@
     <section class="section">
         <h2>Un Día Especial</h2>
         <p>
-            En este caminar juntos, celebramos mucho más que un simple paso del tiempo...
+            Hoy celebramos no solo el paso del tiempo, sino la magia de compartirlo contigo.  
+            Cada instante a tu lado transforma lo cotidiano en algo extraordinario, y cada sonrisa tuya ilumina mi mundo como el sol en un día despejado.  
+            Gracias por ser mi refugio, mi alegría y mi todo. ❤️
         </p>
     </section>
 
@@ -204,6 +166,15 @@
                 <img src="3e2b7a85-efcc-4785-8bb1-44e66c9c8d98.JPEG" alt="Foto 1">
                 <img src="458ae6b4-d544-492a-9b08-2d81ffcb3b37.JPEG" alt="Foto 2">
                 <img src="70772451-3583-460e-b282-9cef13795b75.JPEG" alt="Foto 3">
+                <img src="9c770441-cf62-44d9-8e6a-102724673671.JPEG" alt="Foto 4">
+                <img src="IMG_0638.JPEG" alt="Foto 5">
+                <img src="IMG_0639.JPEG" alt="Foto 6">
+                <img src="a0d7262c-c34d-402c-bea4-f8a88b07c079.JPEG" alt="Foto 7">
+                <img src="b04a1170-91d3-44f1-b9b6-0a9f9cc420cf.JPEG" alt="Foto 8">
+                <img src="e1c5e3d0-e612-4618-892d-0756b68ca978.JPEG" alt="Foto 9">
+                <img src="fc120d01-6f7f-4d85-a56f-cb0efb20b29c.JPEG" alt="Foto 10">
+                <img src="3e2b7a85-efcc-4785-8bb1-44e66c9c8d98.JPEG" alt="Foto 1">
+                <img src="458ae6b4-d544-492a-9b08-2d81ffcb3b37.JPEG" alt="Foto 2">
             </div>
         </div>
     </section>
@@ -213,44 +184,25 @@
         <p>&copy; 2024 Nuestro aniversario. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón flotante -->
-    <button class="floating-button" id="musicButton">
-        <i class="fas fa-music"></i>
-    </button>
-
-    <!-- Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('miAudio');
-            audio.play().catch(error => {
-                console.log('Error al reproducir automáticamente:', error);
-                alert('La reproducción automática fue bloqueada. Pulsa cualquier parte de la página para iniciar la música.');
-            });
-        });
+        let currentIndex = 0; // Índice actual de la imagen
+        const totalImages = 12; // Total de imágenes, incluyendo duplicadas
+        const visibleImages = 3; // Imágenes visibles al mismo tiempo
 
-        document.addEventListener('click', () => {
-            const audio = document.getElementById('miAudio');
-            if (audio.paused) {
-                audio.play();
+        function moveCarousel() {
+            currentIndex++;
+            if (currentIndex > totalImages - visibleImages) {
+                currentIndex = 0;
             }
-        });
+            updateCarousel();
+        }
 
-        // Selecciona el botón flotante
-        const button = document.getElementById('musicButton');
+        function updateCarousel() {
+            const offset = -currentIndex * (100 / visibleImages);
+            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }
 
-        // Agrega el evento para que desaparezca al hacer clic
-        button.addEventListener('click', () => {
-            button.classList.add('hidden');
-        });
-
-        // Carrusel
-        document.addEventListener('DOMContentLoaded', () => {
-            const carouselImages = document.querySelector('.carousel-images');
-            const images = document.querySelectorAll('.carousel img');
-            const totalImages = images.length;
-            let currentIndex = 0;
-
-            // Función para mover el carrusel
-            const moveCarousel = () => {
-                currentIndex = (currentIndex + 1) % totalImages; // Mover al siguiente índice
-                const
+        setInterval(moveCarousel, 3000);
+    </script>
+</body>
+</html>
