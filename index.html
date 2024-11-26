@@ -192,8 +192,7 @@
     <section class="section">
         <h2>Un Día Especial</h2>
         <p>
-            En este caminar juntos, celebramos mucho más que un simple paso del tiempo.
- ❤️
+            En este caminar juntos, celebramos mucho más que un simple paso del tiempo...
         </p>
     </section>
 
@@ -219,6 +218,7 @@
         <i class="fas fa-music"></i>
     </button>
 
+    <!-- Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('miAudio');
@@ -242,6 +242,15 @@
         button.addEventListener('click', () => {
             button.classList.add('hidden');
         });
-    </script>
-</body>
-</html>
+
+        // Carrusel
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselImages = document.querySelector('.carousel-images');
+            const images = document.querySelectorAll('.carousel img');
+            const totalImages = images.length;
+            let currentIndex = 0;
+
+            // Función para mover el carrusel
+            const moveCarousel = () => {
+                currentIndex = (currentIndex + 1) % totalImages; // Mover al siguiente índice
+                const
