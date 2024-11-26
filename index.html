@@ -111,7 +111,7 @@
         }
 
         .carousel img {
-            width: calc(100% / 3); /* Cada imagen ocupa un tercio del carrusel */
+            width: 100%; /* Cada imagen ocupa el 100% del carrusel */
             height: auto;
             aspect-ratio: 3 / 2; /* Mantener la proporción 3:2 */
             object-fit: cover; /* Ajustar la imagen sin distorsión */
@@ -238,12 +238,12 @@
 
         function moveCarousel() {
             if (currentIndex === totalImages - 1) {
-                currentIndex = 0;
+                currentIndex = 0; // Volver a la primera imagen
             } else {
                 currentIndex++;
             }
 
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`; // Mover al siguiente slide
         }
 
         setInterval(moveCarousel, 3000); // Mover cada 3 segundos
